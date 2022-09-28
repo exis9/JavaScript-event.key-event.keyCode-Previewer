@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Real time key analyzer">
+	<title>JavaScript All Key Events Previewer: event.key keyCode which code What is the difference between them?</title>
+	<style>
+		h1 {
+			font-size: 24px;
+		}
+		input {
+			border: 2px solid #888;
+			border-radius: 4px;
+			padding: 8px 10px;
+			letter-spacing: 4px;
+			font-weight: bold;
+			font-size: 15px;
+		}
+		#demo div[data-v] {
+			margin-left: 20px;
+			display: flex;
+		}
+		#demo div[data-v] div {
+			min-width: 100px;
+		}
+		#demo div[data-v] div:first-child {
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>JavaScript All Key Events Previewer</h1>
+
+<p>Press a key on the keyboard in the input field.</p>
+
+<input type="text" size="40" onkeydown="myFunction(event);">
+
+<p id="demo"></p>
+
+<br><br>
+<a href="https://github.com/exis9" target="_blank">TOP</a>
+
+<script>
+function createLink(n){
+	return `<div style="margin-left: 20px;font-size:14px;color: #444">(<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/${n}" target="_blank">event.${n}</a>)</div>`
+}
+function myFunction(event) {
+	document.getElementById("demo").innerHTML = `
+		<div data-v="key"><div>${event.key}</div>${createLink('key')}</div>
+		<div data-v="keyCode"><div>${event.keyCode}</div>${createLink('keyCode')}</div>
+		<div data-v="which"><div>${event.which}</div>${createLink('which')}</div>
+		<div data-v="code"><div>${event.code}</div>${createLink('code')}</div>
+		<hr>
+		<div data-v="shiftKey"><div>${event.shiftKey}</div>${createLink('shiftKey')}</div>
+		<div data-v="altKey"><div>${event.altKey}</div>${createLink('altKey')}</div>
+		<div data-v="ctrlKey"><div>${event.ctrlKey}</div>${createLink('ctrlKey')}</div>
+		<div data-v="metaKey"><div>${event.metaKey}</div>${createLink('metaKey')}</div>
+		<hr>
+		<div data-v="charCode"><div>${event.charCode}</div>${createLink('charCode')}</div>
+		<div data-v="isComposing"><div>${event.isComposing}</div>${createLink('isComposing')}</div>
+		<div data-v="keyIdentifier"><div>${event.keyIdentifier}</div>${createLink('keyIdentifier')}</div>
+		<div data-v="location"><div>${event.location}</div>${createLink('location')}</div>
+		<div data-v="repeat"><div>${event.repeat}</div>${createLink('repeat')}</div>
+	`
+}
+</script>
+
+</body>
+</html>
